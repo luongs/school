@@ -232,6 +232,14 @@ public class DQ {
 		}
 	}
 	
+	public void print(){
+		System.out.print("(");
+		for(int i=0; i<element.length; i++)
+			System.out.print(element[i]+", ");
+		System.out.print(") \n");
+	
+	}
+	
 	public String toString(int i)		//method to test the outputs
 	{
 		return "" + element[i];
