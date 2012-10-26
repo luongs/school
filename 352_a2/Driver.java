@@ -10,9 +10,9 @@ public class Driver {
 	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
 		
-		DQ a = new DQ();
-		
-		a.addFirst(3);					// Stop first value from disappearing when calling addFirst and last. 
+		DQ<Integer> a = new DQ<Integer>();
+		Integer il=1;
+		a.addFirst(1);					// Stop first value from disappearing when calling addFirst and last. 
 		a.addFirst(3);
 		a.addLast(5);
 		a.addLast(5);
@@ -31,25 +31,25 @@ public class Driver {
 		
 		System.out.println("__________________");
 		System.out.println("Peek first method: ");
-		int peek=a.peekFirst();
+		int peek=(Integer) a.peekFirst();
 		System.out.println("Peeked first value "+peek);
 		a.print();
 		
 		System.out.println("__________________");
 		System.out.println("Peek last method: ");
-		int peekLast=a.peekLast();
+		int peekLast=(Integer) a.peekLast();
 		System.out.println("Peeked last value "+peek);
 		a.print();
 		
 		System.out.println("__________________");
 		System.out.println("Remove first method: ");
-		int temp=a.removeFirst();
+		int temp=(Integer) a.removeFirst();
 		a.print();
 		System.out.println("Removed first value "+temp);
 		
 		System.out.println("__________________");
 		System.out.println("Remove last method: ");
-		int lTemp=a.removeLast();
+		int lTemp=(Integer) a.removeLast();
 		a.print();
 		System.out.println("Removed last value "+lTemp);
 		

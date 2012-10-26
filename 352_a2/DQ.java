@@ -1,9 +1,10 @@
 import java.io.IOException;
+import java.lang.reflect.Array;
 
 
-public class DQ {
+public class DQ<T> {
 
-	private int[] element;		//array to to store all values
+	private T[] element;		//array to to store all values
 	private int front, back;	//pointers to keep track of the last added value either to the front or back where front starts at 0 of array and back starts at the last last point
 	private int numOfElements;			//counter to keep track of the number of elements in the array
 	private int size;
@@ -11,17 +12,20 @@ public class DQ {
 	private boolean doubling = true;
 	private boolean increasing = false;
 	
-	public DQ()
+	
+	@SuppressWarnings("unchecked")
+	public  DQ()
 	{
 		 size= 10; 
 		 mid = size/2;
-		 element = new int[size];		//initialize size of array to arbitrary value
+		 element =  (T[]) new Object[(size)];		//initialize size of array to arbitrary value
 		 front = mid; 
 		 back = mid;		
 		 numOfElements = 0;
 	}
+
 	
-	public void addFirst(int firstValue)
+	public void addFirst(T firstValue)
 	{
 		if(front!=back +1){				// avoids overwrite of value in tail slots
 			
@@ -47,7 +51,7 @@ public class DQ {
 		 * [1, 2, 3, 5, 4, 0, 0, 0, 0, 0]. What my algorithm is trying to do is to get it to appear like this 
 		 * [1, 2, 3, 0, 0, 0, 0, 0, 5, 4]. I think this is what we're supposed to do. The algorithm doens't fully work yet.
 		 * But read the question and stuff and let me know what you think if this is what we're supposed to do. 
-		 * */
+		 *
 		 
 		if(numOfElements/size*100 >= 90)
 		{
@@ -73,10 +77,10 @@ public class DQ {
 				element[i] = asdf[i];
 			
 			back = element.length - temp;	//re-assigns the back value so it points to the appropriate index with the newly positioned addLast values
-		}
+		} */
 	}
 	
-	public void addLast(int lastValue)
+	public void addLast(T lastValue)
 	{
 		
 		if(back!=front-1){
@@ -90,7 +94,7 @@ public class DQ {
 		}
 		/*element[--back] = lastValue;
 		numOfElements++;
-		*/
+		
 		if(numOfElements/element.length*100 >= 90)
 		{
 			int[] asdf;
@@ -113,19 +117,19 @@ public class DQ {
 				element[i] = asdf[i];
 			
 			back = element.length - temp;
-		}
+		}*/
 	}
 	
-	public int removeFirst() throws IOException
+	public T removeFirst() throws IOException
 	{
-		int temp=0;	
+		T temp=null;	
 		
 		try{
-			if(element[front+1]==0)			// + 1 since head has moved to an unused space after addFirst() call
+			if(element[front+1]==null)			// + 1 since head has moved to an unused space after addFirst() call
 				throw new IOException();	// Implement specific error and message
 			else{
 				temp=element[front+1];
-				element[front+1]=0;
+				element[front+1]=null;
 				front++;
 				numOfElements--;
 			}
@@ -137,16 +141,16 @@ public class DQ {
 	}
 	
 	
-	public int removeLast()
+	public T removeLast()
 	{
-		int temp =0;	
+		T temp =null;	
 		
 		try{
-			if(element[back-1]==0)						
+			if(element[back-1]==null)						
 				throw new IOException();	
 			else{
 				temp=element[back-1];
-				element[back-1]=0;
+				element[back-1]=null;
 				back--;
 				numOfElements--;
 			}
@@ -173,34 +177,35 @@ public class DQ {
 		//return numOfElements == 0;
 	}
 	
-	public int peekFirst()
+	public T peekFirst()
 	{
-		int temp;
+		T temp;
 		return temp=element[front+1];
 	}
 	
-	public int peekLast()
+	public T peekLast()
 	{
-		int temp;
+		T temp;
 		return temp=element[back-1];
 	}
 	
-	public int[] truncate()		
+	@SuppressWarnings("unchecked")
+	public T[] truncate()		
 	{
 		int ctrA=0;
 		int ctrB=0;
-		int [] temp;
+		T[] temp;
 		
 		// Determine number of used slots in array 
 		for(int i=0; i<element.length;i++){			
-			if(element[i]!=0)
+			if(element[i]!=null)
 				ctrA++;	}
 		
-		temp = new int [ctrA];
+		temp = (T[])new Object[(size)];
 		
 		// Add values in truncated array 'temp'
 		for (int i=0; i<element.length; i++)
-				if(element[i]!=0){
+				if(element[i]!=null){
 					temp[ctrB]=element[i];
 					ctrB++;}
 		
@@ -245,11 +250,11 @@ public class DQ {
 		return "" + element[i];
 	}
 
-	public int[] getElement() {
+	public T[] getElement() {
 		return element;
 	}
 
-	public void setElement(int[] element) {
+	public void setElement(T[] element) {
 		this.element = element;
 	}
 
