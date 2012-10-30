@@ -1,0 +1,44 @@
+﻿Build started 16/10/2012 9:47:02 PM.
+     1>Project "C:\Users\nguyet\Documents\School\2013\Comp 345\Project\6369324_LUONG_SEBASTIEN_A1\345 Assignment 1\345 Assignment 1\345 Assignment 1.vcxproj" on node 2 (build target(s)).
+     1>InitializeBuildStatus:
+         Creating "Debug\345 Assignment 1.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt Armour.cpp Axe.cpp Character.cpp Driver.cpp Equipment.cpp Helmet.cpp HolyLance.cpp RuneSword.cpp Shield.cpp Sorceress.cpp Sword.cpp Warrior.cpp
+         Warrior.cpp
+         Sword.cpp
+         Sorceress.cpp
+         Shield.cpp
+         RuneSword.cpp
+         HolyLance.cpp
+         Helmet.cpp
+         Equipment.cpp
+         Driver.cpp
+         Character.cpp
+         Axe.cpp
+         Armour.cpp
+         Generating Code...
+       Link:
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\nguyet\Documents\School\2013\Comp 345\Project\6369324_LUONG_SEBASTIEN_A1\345 Assignment 1\Debug\345 Assignment 1.exe" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\345 Assignment 1.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\Users\nguyet\Documents\School\2013\Comp 345\Project\6369324_LUONG_SEBASTIEN_A1\345 Assignment 1\Debug\345 Assignment 1.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\nguyet\Documents\School\2013\Comp 345\Project\6369324_LUONG_SEBASTIEN_A1\345 Assignment 1\Debug\345 Assignment 1.lib" /MACHINE:X86 Debug\Armour.obj
+         Debug\Axe.obj
+         Debug\Character.obj
+         Debug\Driver.obj
+         Debug\Equipment.obj
+         Debug\Helmet.obj
+         Debug\HolyLance.obj
+         Debug\RuneSword.obj
+         Debug\Shield.obj
+         Debug\Sorceress.obj
+         Debug\Sword.obj
+         Debug\Warrior.obj
+         LINK : C:\Users\nguyet\Documents\School\2013\Comp 345\Project\6369324_LUONG_SEBASTIEN_A1\345 Assignment 1\Debug\345 Assignment 1.exe not found or not built by the last incremental link; performing full link
+         345 Assignment 1.vcxproj -> C:\Users\nguyet\Documents\School\2013\Comp 345\Project\6369324_LUONG_SEBASTIEN_A1\345 Assignment 1\Debug\345 Assignment 1.exe
+       Manifest:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"C:\Users\nguyet\Documents\School\2013\Comp 345\Project\6369324_LUONG_SEBASTIEN_A1\345 Assignment 1\Debug\345 Assignment 1.exe;#1" /manifest "Debug\345 Assignment 1.exe.intermediate.manifest"
+       FinalizeBuildStatus:
+         Deleting file "Debug\345 Assignment 1.unsuccessfulbuild".
+         Touching "Debug\345 Assignment 1.lastbuildstate".
+     1>Done Building Project "C:\Users\nguyet\Documents\School\2013\Comp 345\Project\6369324_LUONG_SEBASTIEN_A1\345 Assignment 1\345 Assignment 1\345 Assignment 1.vcxproj" (build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:12.76
