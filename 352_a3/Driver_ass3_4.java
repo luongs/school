@@ -4,7 +4,27 @@ public class Driver_ass3_4 {
 	public static void main(String[] args) {
 		
 		binaryTree2 tree1 = new binaryTree2(5);
+		tree1.addFirstNode('a');
+		tree1.addLeft('b');
+		//tree1.addLeft('d');
+		tree1.addRight('e');
+		tree1.addLeft('f');
+		tree1.addRight('g');
+	//	tree1.addLeft('h');
 		
+		//tree1.toggleHeap();		//maxRemove
+		System.out.println(" a is expected "+ tree1.remove());
+		System.out.println(" b is expected "+ tree1.remove());
+		System.out.println(" f is expected "+ tree1.remove());
+		System.out.println(" g is expected "+ tree1.remove());
+		System.out.println(" e is expected "+ tree1.remove());
+		//tree1.addRight('z');
+		
+		tree1.print();
+		
+		System.out.println(tree1.isHeapChoice());
+		
+		/*
 		tree1.addFirstNode('a');
 		tree1.insertLeft(1, 'b');
 		tree1.insertRight(1, 'c');
@@ -80,7 +100,7 @@ public class Driver_ass3_4 {
 		System.out.println("Node Left and Right methods");
 		System.out.println(tree3.left(2));
 		System.out.println(tree3.right(2));
-		
+		*/
 	}
 
 }

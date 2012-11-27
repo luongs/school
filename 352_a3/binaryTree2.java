@@ -5,7 +5,8 @@ public class binaryTree2 {
 
 	private arrayList a;
 	private int cursor;
-	
+	private boolean heapChoice; 		// default is minHeap; true is maxHeap
+		
 	public binaryTree2()
 	{
 		a = new arrayList(10);
@@ -16,21 +17,40 @@ public class binaryTree2 {
 	{
 		a = new arrayList(size);
 		cursor = 1;
+	
 	}
 	
 	public void addFirstNode(Character x)
 	{
-		a.set(1, x);
+		a.add(1, x);
 	}
 	
 	public void addLeft(Character x)
 	{
-		a.set(cursor*2, x);
+		if(a.get(cursor*2)==null){
+			a.add(cursor*2, x);
+			
+		}
+		else {
+			cursor*=2;
+			a.add(cursor*2, x);
+		
+			System.out.println("Improper tree!");
+		}
 	}
 	
 	public void addRight(Character x)
 	{
-		a.set((cursor*2) + 1, x);
+		if(a.get(cursor*2+1)==null){
+			a.add((cursor*2) + 1, x);
+			cursor+=1;
+		}
+		else{
+			cursor*=2+1;
+			a.add((cursor*2) + 1, x);
+			//last=cursor*4+1;
+			System.out.println("Improper tree!");			
+		}
 	}
 	
 	public Character goToParent()		// Similar to parent() 
@@ -51,19 +71,20 @@ public class binaryTree2 {
 		return a.get(cursor);
 	}
 	
+	/*
 	public void remove()
 	{
 		a.set(cursor, null);
 	}
-	
+	*/
 	// Added methods
 	
 	public int size(){
-		return a.getSize();
+		return a.getIndex();
 	}
 	
 	public boolean isEmpty(){
-		return a.getSize()== 0;
+		return a.getIndex()== 0;
 	}
 	
 	public Character root(){
@@ -101,7 +122,7 @@ public class binaryTree2 {
 			if(index*2 >= a.getSize())
 				a.expand();
 			if(hasLeft(index)==false)
-				a.set(index*2, val);
+				a.add(index*2, val);
 		else 
 			throw new IOException();
 		}
@@ -115,7 +136,7 @@ public class binaryTree2 {
 			if(index*2+1 >= a.getSize())
 				a.expand();
 			if(hasRight(index)==false)
-				a.set(index*2+1, val);
+				a.add(index*2+1, val);
 		else 
 			throw new IOException();
 		}
@@ -188,6 +209,60 @@ public class binaryTree2 {
 	
 	}
 	
+	// New heap methods
+	
+	public void toggleHeap(){
+		heapChoice = !heapChoice;
+	}
+	
+	public void switchMinHeap(){
+		heapChoice = false;
+	}
+	
+	public void switchMaxHeap(){
+		heapChoice = true; 		
+	}
+	
+	public Character remove(){
+		Character temp = null;
+		if(heapChoice == false){
+			temp=root();
+			a.set(1,a.get(getIndex()));	//Replace root with last node 
+			
+			downHeap(getIndex(), 1);
+			
+			a.setIndex(getIndex()-1);			
+		}
+		if(heapChoice == true){
+			temp=a.get(getIndex());
+			a.set(getIndex(), null);		//Set max value to null 
+			a.setIndex(getIndex()-1);
+		}
+		return temp;
+	}
+	
+	public void downHeap(int heapIndex, int nextIndex){
+		
+		while(nextIndex<=heapIndex){
+		if(hasLeft(nextIndex)){
+				replace(nextIndex,left(nextIndex));
+				nextIndex=nextIndex*2;
+				
+		}
+		else if(hasRight(nextIndex)){
+			replace(nextIndex, right(nextIndex));
+			nextIndex = nextIndex*2+1;
+		}
+		else {
+			a.set(nextIndex, a.get(getIndex()));
+			a.set(getIndex(), null);	
+			return;
+		}
+	}
+		
+	}
+	
+	
 	// Getters and setter methods
 	
 	public int getCursor()
@@ -208,6 +283,14 @@ public class binaryTree2 {
 	public int getSize()
 	{
 		return a.getSize();
+	}
+
+	public boolean isHeapChoice() {
+		return heapChoice;
+	}
+
+	public void setHeapChoice(boolean heapChoice) {
+		this.heapChoice = heapChoice;
 	}
 	
 }
