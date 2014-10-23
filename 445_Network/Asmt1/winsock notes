@@ -1,0 +1,48 @@
+winsock notes: 
+
+Streaming socket: SOCK_STREAM
+	* Used for TCP connection when reliability is important
+	* Binding: associate specific address to a given socket
+
+Using sockets: 
+	* Client side: create a socket, call connect(address). 
+		* winsock picks IP and any free  port number 
+		* IP must be picked from either internet IP, local IP (192.168.x.x) and loop back address (127.0.0.1)
+
+	*Server side: 
+		* Listens to incoming connections from specific ports 
+		* Creates new socket when data must be sent to keep listening socket undisturbed. 
+
+
+Basic winsock functions: 
+	*Initialize winsock library
+		*WSAStartup & WSACleanup
+	*SOCKET socket(int af, int type, int protocol)
+		*creates new socket
+		*af: address family to use; AF_INET for TCP & UDP 
+		*type: type of socket -> SOCK_STREAM (TCP), SOCK_DGRAM(UDP)
+		*protocol: self explanatory
+		*return handle to new socket
+	*closesocket
+		*must always close socket when finished
+	*sockaddr
+		*used to convert byte order from intel x86 (little-endian) to network ordering (big-endian)
+	*connect
+		*connects socket with remote socket
+	*binding
+		*server
+		*usually done before putting socket in listening state
+	*listen
+		*server
+		*must be bound to an address/port first
+	*accept
+		*accept incoming connection
+		*creates new socket to handle and connect to client socket 
+	*send
+		* determine socket to send data on and size of data to send
+		* returns number of bytes sent 
+	*recv
+		* receives data and stores it in buffer
+
+
+
